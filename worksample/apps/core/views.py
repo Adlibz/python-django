@@ -12,7 +12,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 FLY_API_TOKEN = env("FLY_API_TOKEN", default="")  
-FLY_APP_NAME = "nganz"
+FLY_APP_NAME = env("FLY_APP_NAME", default="") 
 
 class HomepageView(TemplateView):
     template_name = "homepage.html"
