@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="px-4 py-8 sm:px-6 sm:py-26 lg:px-8 xl:px-28 xl:py-30">
+  <div class="mx-auto max-w-lg lg:mx-0">
+    {% for machine in machines %}
+    <div class="flow-root rounded-lg border border-gray-100 py-3 shadow-sm dark:border-gray-700">
+      <dl class="-my-3 divide-y divide-gray-100 text-sm dark:divide-gray-700">
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Machine ID</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">{{ machine.id }}</dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Machine Name</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">{{ machine.name }}</dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Image</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+            {{ machine.config.image }}
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Created At</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+            {{ machine.created_at }}
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Region</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+            {{ machine.region }}
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">Private IP</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+            {{ machine.private_ip }}
+          </dd>
+        </div>
+        <div class="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4 even:dark:bg-gray-800">
+          <dt class="font-medium text-gray-900 dark:text-white">State</dt>
+          <dd class="text-gray-700 sm:col-span-2 dark:text-gray-200">
+            {{ machine.state }}
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <div class="py-8"></div>
+    {% empty %}
+      <div class="font-medium text-gray-900 dark:text-white">
+        No machines found.
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
