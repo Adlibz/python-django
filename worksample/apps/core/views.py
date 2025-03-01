@@ -13,7 +13,7 @@ def get_env_value(env_file, key, default=""):
         pass
     return default
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_file_)))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 FLY_API_TOKEN = get_env_value(os.path.join(BASE_DIR, ".env"), "FLY_API_TOKEN", "")
 FLY_APP_NAME = get_env_value(os.path.join(BASE_DIR, ".env"), "FLY_APP_NAME", "")
 
